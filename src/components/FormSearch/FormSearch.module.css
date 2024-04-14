@@ -1,0 +1,32 @@
+.label {
+    display: flex;
+    flex-direction: column;
+    color: rgba(16, 24, 40, 0.6);
+    gap: 8px;
+}
+
+.input {
+    width: 324px;
+    height: 20px;
+    padding: 18px;
+    border-radius: 10px;
+    border: none;
+    background-color: #F7F7F7;
+}
+
+.filter_label {
+    display: flex;
+    flex-direction:column;
+    color: #475467;
+    gap: 14px;
+}
+
+.filter_input {
+    color: #101828;
+    width: 360px;
+    height: 24px;
+    padding-bottom: 24px;
+    border-bottom: solid 1px rgba(16, 24, 40, 0.1);
+    
+
+}

@@ -7,7 +7,7 @@
     background-color: var(--navy-blue);
     background-image: linear-gradient(rgba(46, 47, 66, 0.7),
             rgba(46, 47, 66, 0.7)),
-            url(../../Img/Home/campervan_Hero.jpg);
+            url(../../utils/img/campervan_Hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
