@@ -1,0 +1,22 @@
+.button {
+    padding: 16px 60px;
+    border-radius: 200px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.5%;
+    color: #ffffff;
+    background-color: #E44848;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover,
+.button:focus {
+    background-color: #D84343;
+    cursor: pointer;
+}

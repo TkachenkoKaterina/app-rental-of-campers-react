@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import css from "./Header.module.css";
 
 const Header = () => {
   return (
@@ -6,8 +9,11 @@ const Header = () => {
       <Link to="/" className={css.link}>
         Home
       </Link>
-      <Link to="/movies" className={css.link}>
-        Movies
+      <Link to="/catalog" className={css.link}>
+        Catalog
+      </Link>
+      <Link to="/favorites" className={css.link}>
+        Favorites
       </Link>
     </nav>
   );
