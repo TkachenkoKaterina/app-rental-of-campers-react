@@ -1,11 +1,17 @@
-.label {
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.location {
     display: flex;
     flex-direction: column;
     color: rgba(16, 24, 40, 0.6);
     gap: 8px;
 }
 
-.input {
+.locationInput {
     width: 324px;
     height: 20px;
     padding: 18px;
@@ -14,19 +20,52 @@
     background-color: #F7F7F7;
 }
 
-.filter_label {
+/* filter */
+
+.filterWrapper {
     display: flex;
-    flex-direction:column;
-    color: #475467;
-    gap: 14px;
+    flex-direction: column;
 }
 
-.filter_input {
+.filterSpan {
+    color: #475467;
+    margin-bottom: 14px;
+}
+
+.filterEquipment{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 24px;
     color: #101828;
     width: 360px;
     height: 24px;
+    
     padding-bottom: 24px;
     border-bottom: solid 1px rgba(16, 24, 40, 0.1);
-    
+}
 
+.label {
+    cursor: pointer;
+}
+
+.equipmentList{
+    width: 360px;
+}
+
+.equipmentItem {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.equipmentSpan{
+    display: block;
+    padding: 17px 0;
+    height: 61px;
+    text-align: center;
+    align-content: center;
+    width: 111px;
+    border: solid 1px #101828;
+    border-radius: 10px;
 }
