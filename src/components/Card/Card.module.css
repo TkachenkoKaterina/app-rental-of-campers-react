@@ -1,0 +1,80 @@
+.cardWrapper {
+    display: flex;
+    gap: 24px;
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 526px;
+}
+
+.cardInfoReview {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cardTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.25;
+    color: #101828;
+}
+
+.cardPrice {
+    display: flex;
+    gap: 10px;
+    align-items:center;
+}
+
+.heart:hover  {
+    cursor: pointer;    
+}
+
+.cardReviews {
+display: flex;
+gap: 16px;
+}
+
+.review {
+    display: flex;
+    align-items:center;
+    gap: 4px;
+}
+
+.reviewRating {
+    /* text-decoration: underline; */
+    border-bottom: 1px solid red;
+}
+
+.reviewText {
+    color: #475467;
+}
+
+.categoryList {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+
+.categoryItems {
+    display: inline-flex;
+    gap: 8px;
+    align-items:center;
+    padding: 12px 18px;
+    border-radius: 100px;
+    background-color: #F2F4F7;
+    line-height: 1.25;
+}
+
+.categoryItemsText {
+    font-weight: 500;
+}

@@ -1,12 +1,13 @@
 .button {
-    padding: 16px 60px;
+    padding: 16px 40px;
     border-radius: 200px;
     border: none;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
-    letter-spacing: -0.5%;
+    /* letter-spacing: -0.5%; */
+    text-align: center;
     color: #ffffff;
     background-color: #E44848;
 
