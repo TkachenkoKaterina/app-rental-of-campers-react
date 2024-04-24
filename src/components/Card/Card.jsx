@@ -80,12 +80,6 @@ const Card = () => {
             </svg>
             <p>adults</p>
           </li>
-          <li className={css.categoryItems}>
-            <svg width="20" height="20">
-              <use xlinkHref={`${sprite}#users`} />
-            </svg>
-            <p>adults</p>
-          </li>
         </ul>
         <div>
           <Button />
