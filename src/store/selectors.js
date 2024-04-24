@@ -8,6 +8,10 @@ export const selectError = (state) => state.catalogs.error;
 
 export const selectFilter = (state) => state.filter;
 
+export const selectPage = (state) => state.page;
+
+// export const selectLimit = (state) => state.limit;
+
 export const selectFilteredCatalogs = createSelector(
   [selectCatalogs, selectFilter],
   (catalogs, filter) => {

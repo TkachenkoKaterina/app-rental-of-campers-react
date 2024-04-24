@@ -8,7 +8,9 @@ const Catalog = () => {
   return (
     <div className={css.wrapper}>
       <FormSearch />
-      <CatalogList />
+      <div className={css.wrapperCatalog}>
+        <CatalogList />
+      </div>
     </div>
   );
 };

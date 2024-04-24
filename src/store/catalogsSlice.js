@@ -8,6 +8,7 @@ const initialState = {
     error: null,
   },
   filter: "",
+  page: 1,
 };
 
 const handlePending = (state) => {
@@ -26,6 +27,9 @@ export const catalogsSlice = createSlice({
     updateFilter: (state, action) => {
       state.filter = action.payload;
     },
+    incrementPage: (state) => {
+      state.page += 1;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -33,11 +37,15 @@ export const catalogsSlice = createSlice({
       .addCase(fetchCatalogs.fulfilled, (state, action) => {
         state.catalogs.isLoading = false;
         state.catalogs.error = null;
-        state.catalogs.items = action.payload;
+        if (action.payload.length === 0) {
+          // If no new items are fetched, do not update items array
+          return;
+        }
+        state.catalogs.items = [...state.catalogs.items, ...action.payload];
       })
       .addCase(fetchCatalogs.rejected, handleRejected);
   },
 });
 
-export const { updateFilter } = catalogsSlice.actions;
+export const { updateFilter, incrementPage } = catalogsSlice.actions;
 export const catalogsReducer = catalogsSlice.reducer;

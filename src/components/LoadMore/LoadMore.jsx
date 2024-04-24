@@ -2,10 +2,10 @@ import React from "react";
 
 import css from "./LoadMore.module.css";
 
-const LoadMore = () => {
+const LoadMore = ({ onLoadMore }) => {
   return (
-    <button className={css.button} type="button">
-      Show more
+    <button onClick={onLoadMore} className={css.loadMore} type="button">
+      Load more
     </button>
   );
 };

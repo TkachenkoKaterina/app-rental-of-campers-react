@@ -1,4 +1,7 @@
-.button {
+.loadMore {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 16px 32px;
     border: solid 1px #475467;
     border-radius: 200px;
@@ -15,8 +18,8 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.button:hover,
-.button:focus {
+.loadMore:hover,
+.loadMore:focus {
     border-color: #E44848;
     cursor: pointer;
 }
