@@ -3,6 +3,9 @@ import css from "./CatalogItem.module.css";
 // import IMG from "../../utils/img/switch.jpg";
 import sprite from "../../utils/svg/sprite.svg";
 import Button from "../Button/Button";
+import { useDispatch } from "react-redux";
+import { openModal } from "../../store/catalogsSlice";
+// import { selectCatalogItem } from "../../store/catalogsSlice";
 
 const CatalogItem = ({ catalog }) => {
   const {
@@ -27,8 +30,14 @@ const CatalogItem = ({ catalog }) => {
     reviews,
   } = catalog;
 
+  const dispatch = useDispatch();
+
+  const handleCatalogItemClick = () => {
+    dispatch(openModal(catalog._id));
+  };
+
   return (
-    <li className={css.cardWrapper}>
+    <li onClick={handleCatalogItemClick} className={css.cardWrapper}>
       <div className={css.cardImgBox}>
         <img className={css.cardImg} src={gallery[0]} alt="camper" />
       </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import css from "./CatalogList.module.css";
@@ -18,30 +18,33 @@ const CatalogList = () => {
   const catalogs = useSelector(selectCatalogs);
   const isLoading = useSelector(selectIsLoading);
   const page = useSelector(selectPage);
-  console.log(catalogs);
+  // console.log(catalogs);
 
   useEffect(() => {
-    dispatch(fetchCatalogs(page));
-  }, [dispatch, page]);
+    dispatch(fetchCatalogs());
+  }, [dispatch]);
 
-  const handleLoadMore = () => {
+  const handleLoadMore = useCallback(() => {
     dispatch(incrementPage());
-    dispatch(fetchCatalogs(page + 1));
-  };
+    dispatch(fetchCatalogs());
+  }, [dispatch]);
 
-  // const startIndex = (page - 1) * limit;
-  // const displayedCatalogs = catalogs.slice(startIndex, startIndex + limit);
+  const startIndex = (page - 1) * 4;
+  const endIndex = startIndex + 4;
+  const visibleCatalogs = catalogs.slice(0, endIndex);
 
   return (
     <>
       <ul className={css.catalogList}>
-        {catalogs.map((catalog) => {
+        {visibleCatalogs.map((catalog) => {
           return <CatalogItem key={catalog._id} catalog={catalog} />;
         })}
       </ul>
       {isLoading && <div>Loading...</div>}
-      {!isLoading && catalogs.length > 0 && (
-        <LoadMore onLoadMore={handleLoadMore} />
+      {!isLoading && visibleCatalogs.length < catalogs.length && (
+        <div className={css.loadMoreContainer}>
+          <LoadMore onLoadMore={handleLoadMore} />
+        </div>
       )}
     </>
   );

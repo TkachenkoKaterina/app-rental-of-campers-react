@@ -9,6 +9,8 @@ const initialState = {
   },
   filter: "",
   page: 1,
+  isModalOpen: false,
+  selectedItemId: null,
 };
 
 const handlePending = (state) => {
@@ -30,6 +32,17 @@ export const catalogsSlice = createSlice({
     incrementPage: (state) => {
       state.page += 1;
     },
+    // selectCatalogItem: (state, action) => {
+    //   state.selectedItemId = action.payload;
+    // },
+    openModal: (state, action) => {
+      state.isModalOpen = true;
+      state.selectedItemId = action.payload;
+    },
+    closeModal: (state) => {
+      state.isModalOpen = false;
+      state.selectedItemId = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -37,15 +50,17 @@ export const catalogsSlice = createSlice({
       .addCase(fetchCatalogs.fulfilled, (state, action) => {
         state.catalogs.isLoading = false;
         state.catalogs.error = null;
-        if (action.payload.length === 0) {
-          // If no new items are fetched, do not update items array
-          return;
-        }
-        state.catalogs.items = [...state.catalogs.items, ...action.payload];
+        state.catalogs.items = action.payload;
       })
       .addCase(fetchCatalogs.rejected, handleRejected);
   },
 });
 
-export const { updateFilter, incrementPage } = catalogsSlice.actions;
+export const {
+  selectCatalogItem,
+  updateFilter,
+  incrementPage,
+  openModal,
+  closeModal,
+} = catalogsSlice.actions;
 export const catalogsReducer = catalogsSlice.reducer;

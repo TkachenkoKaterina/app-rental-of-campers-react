@@ -1,7 +1,12 @@
 import React from "react";
+import FormSend from "../../components/FormSend/FormSend";
 
 const Favorites = () => {
-  return <div>Favorites</div>;
+  return (
+    <div>
+      <FormSend />
+    </div>
+  );
 };
 
 export default Favorites;
