@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectFavorites } from "../../store/selectors";
 import css from "./Favorites.module.css";
 import sprite from "../../utils/svg/sprite.svg";
-import { openModal } from "../../store/modalSlice";
 import { removeFromFavorites } from "../../store/favoritesSlice";
 
 const Favorites = () => {

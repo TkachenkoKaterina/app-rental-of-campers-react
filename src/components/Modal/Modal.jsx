@@ -17,10 +17,10 @@ const Modal = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     dispatch(closeModal());
     navigate(`/catalog`);
-  };
+  }, [dispatch, navigate]);
 
   useEffect(() => {
     const handleKeyPress = (event) => {

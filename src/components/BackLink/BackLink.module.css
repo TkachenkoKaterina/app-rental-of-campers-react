@@ -1,0 +1,14 @@
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 0;
+    color: rgb(198, 16, 37);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.link:hover {
+    color: rgb(39, 167, 39)
+}
