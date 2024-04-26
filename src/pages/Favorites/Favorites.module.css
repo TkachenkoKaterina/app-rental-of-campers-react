@@ -1,0 +1,115 @@
+.favorites {
+    margin-top: 20px;
+}
+
+.noFavorites {
+    color: #777;
+    font-style: italic;
+}
+
+.cardWrapper {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.cardImgBox {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.cardImg {
+    width: 100%;
+    height: auto;
+}
+
+.cardInfo {
+    padding: 20px;
+}
+
+.cardTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.cardPrice {
+    display: flex;
+    align-items: center;
+}
+
+.cardPrice p {
+    margin: 0;
+}
+
+
+
+.cardReviews {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.review {
+    display: flex;
+    align-items: center;
+}
+
+.thumbnail {
+    margin-right: 5px;
+}
+
+.reviewRating {
+    margin: 0;
+}
+
+.description {
+    color: #555;
+    margin-top: 10px;
+}
+
+.categoryList {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.categoryItems {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.categoryItems svg {
+    fill: #333;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.categoryItems p {
+    margin: 0;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6347;
+    color: #fff;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #ff4500;
+}

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import css from "./CatalogItem.module.css";
 import sprite from "../../utils/svg/sprite.svg";
 import Button from "../Button/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../store/modalSlice";
+import { Link } from "react-router-dom";
+import { addToFavorites } from "../../store/favoritesSlice";
+import { selectFavorites } from "../../store/selectors";
 
 const CatalogItem = ({ catalog }) => {
   const {
@@ -13,15 +16,8 @@ const CatalogItem = ({ catalog }) => {
     rating,
     location,
     adults,
-    // children,
     engine,
     transmission,
-    // form,
-    // length,
-    // width,
-    // height,
-    // tank,
-    // consumption,
     description,
     details,
     gallery,
@@ -29,9 +25,20 @@ const CatalogItem = ({ catalog }) => {
   } = catalog;
 
   const dispatch = useDispatch();
+  const favorites = useSelector(selectFavorites);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    setIsFavorite(favorites.some((favorite) => favorite._id === _id));
+  }, [favorites, _id]);
 
   const handleItemClick = () => {
     dispatch(openModal(_id));
+  };
+
+  const handleAddToFavorites = () => {
+    dispatch(addToFavorites(catalog));
+    setIsFavorite(!isFavorite);
   };
 
   return (
@@ -45,8 +52,17 @@ const CatalogItem = ({ catalog }) => {
             <h2 className={css.title}>{name}</h2>
             <div className={css.cardPrice}>
               <p className={css.title}>€{price}.00</p>
-              <svg className={css.heart} width="24" height="24">
-                <use xlinkHref={`${sprite}#heart`} />
+              <svg
+                className={css.heart}
+                width="24"
+                height="24"
+                onClick={handleAddToFavorites}
+              >
+                <use
+                  xlinkHref={`${sprite}#${
+                    isFavorite ? "heart-pressed" : "heart"
+                  }`}
+                />
               </svg>
             </div>
           </div>
@@ -120,7 +136,9 @@ const CatalogItem = ({ catalog }) => {
           </li>
         </ul>
         <div>
-          <Button handleItemClick={handleItemClick} />
+          <Link to={`/catalog/${_id}`}>
+            <Button handleItemClick={handleItemClick} />
+          </Link>
         </div>
       </div>
     </li>

@@ -1,0 +1,75 @@
+.wrapper {
+    padding-top: 44px;
+    display: flex;
+    gap: 24px;
+}
+
+.wrapperLeft {
+    display: flex;
+    max-width: 430px;
+    max-height: 96px;
+    flex-direction: column;
+    gap: 44px;
+}
+
+.reviewList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.reviewItem {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.reviewUserInfo {
+    display: flex;
+    align-items:center;
+    gap: 16px;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #F2F4F7;
+    border-radius: 60px;
+}
+
+.capitalize {
+    padding: 15px 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #E44848;
+    line-height: 1.25;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.user {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.33;
+    color:#101828
+}
+
+.ratingList {
+    display: flex;
+    gap: 4px;
+}
+
+.starActive {
+    fill: #FFC531;
+}
+
+.description {
+    max-width: 430px;
+    color: #475467;
+}

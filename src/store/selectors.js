@@ -17,6 +17,8 @@ export const selectSelectedCatalogItemId = (state) =>
 
 export const selectselectedCard = (state) => state.modal.selectedCard;
 
+export const selectFavorites = (state) => state.favorites.favorites;
+
 export const selectFilteredCatalogs = createSelector(
   [selectCatalogs, selectFilter],
   (catalogs, filter) => {

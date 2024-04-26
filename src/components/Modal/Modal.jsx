@@ -8,17 +8,19 @@ import {
 import css from "./Modal.module.css";
 import sprite from "../../utils/svg/sprite.svg";
 import { fetchCatalogById } from "../../store/operations";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 const Modal = () => {
   const selectedItemId = useSelector(selectSelectedCatalogItemId);
   const selectedCardCatalog = useSelector(selectselectedCard);
-  console.log(selectedCardCatalog);
-  const dispatch = useDispatch();
 
-  const handleCloseModal = useCallback(() => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleCloseModal = () => {
     dispatch(closeModal());
-  }, [dispatch]);
+    navigate(`/catalog`);
+  };
 
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -104,13 +106,20 @@ const Modal = () => {
             </p>
 
             <div className={css.add}>
-              <Link to="features" className={css.features}>
+              <Link
+                to={`/catalog/${selectedItemId}/features`}
+                className={css.features}
+              >
                 Features
               </Link>
-              <Link to="reviews" className={css.features}>
+              <Link
+                to={`/catalog/${selectedItemId}/reviews`}
+                className={css.features}
+              >
                 Reviews
               </Link>
             </div>
+            <div className={css.detailsLine}></div>
             <Suspense fallback={<div>Loading ...</div>}>
               <Outlet />
             </Suspense>

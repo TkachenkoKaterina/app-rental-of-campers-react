@@ -13,9 +13,7 @@
 .modalContent {
     background-color: #fff;
     border-radius: 20px;
-    /* padding: 40px; */
     max-width: 902px;
-    /* max-height: 640px; */
     overflow: hidden;
 }
 
@@ -24,10 +22,8 @@
     max-height: 640px;
     overflow-y: auto;
     margin-right: 16px;
-    /* Add left margin */
 }
 
-/* Scrollbar styling */
 .modalContentInner::-webkit-scrollbar {
     width: 8px;
 }
@@ -63,10 +59,6 @@
     color: #888;
 }
 
-/* .modalBody {
-    line-height: 1.6;
-} */
-
 .cardReviews {
     margin-bottom: 16px;
 }
@@ -95,11 +87,20 @@
     margin-top: 24px;
     margin-bottom: 44px;
     color: #475467;
+    max-height: 72px;
+    overflow: hidden;
 }
 
 .add {
     display: flex;
     gap: 40px;
+}
+
+.detailsLine {
+    margin-top: 24px;
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid rgba(16, 24, 40, 0.1);
 }
 
 .features {

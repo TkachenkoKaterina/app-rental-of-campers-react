@@ -39,6 +39,7 @@
 }
 
 .input {
+    height: 20px;
     padding: 18px;
     border: 1px solid rgba(16, 24, 40, 0.6);
     border-radius: 10px;
@@ -50,7 +51,7 @@
 }
 
 .comment {
-    max-height: 114px;
+    max-height: 78px;
     padding: 18px;
         border: 1px solid rgba(16, 24, 40, 0.6);
         border-radius: 10px;
