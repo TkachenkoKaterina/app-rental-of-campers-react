@@ -18,7 +18,6 @@ const CatalogList = () => {
   const catalogs = useSelector(selectCatalogs);
   const isLoading = useSelector(selectIsLoading);
   const page = useSelector(selectPage);
-  // console.log(catalogs);
 
   useEffect(() => {
     dispatch(fetchCatalogs());
@@ -34,7 +33,7 @@ const CatalogList = () => {
   const visibleCatalogs = catalogs.slice(0, endIndex);
 
   return (
-    <>
+    <div>
       <ul className={css.catalogList}>
         {visibleCatalogs.map((catalog) => {
           return <CatalogItem key={catalog._id} catalog={catalog} />;
@@ -46,7 +45,7 @@ const CatalogList = () => {
           <LoadMore onLoadMore={handleLoadMore} />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

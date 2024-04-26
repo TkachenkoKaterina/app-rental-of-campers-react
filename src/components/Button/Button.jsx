@@ -2,9 +2,9 @@ import React from "react";
 
 import css from "./Button.module.css";
 
-const Button = () => {
+const Button = ({ handleItemClick }) => {
   return (
-    <button className={css.button} type="button">
+    <button onClick={handleItemClick} className={css.button} type="button">
       Show more
     </button>
   );

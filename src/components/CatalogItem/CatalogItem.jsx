@@ -1,15 +1,13 @@
 import React from "react";
 import css from "./CatalogItem.module.css";
-// import IMG from "../../utils/img/switch.jpg";
 import sprite from "../../utils/svg/sprite.svg";
 import Button from "../Button/Button";
 import { useDispatch } from "react-redux";
-import { openModal } from "../../store/catalogsSlice";
-// import { selectCatalogItem } from "../../store/catalogsSlice";
+import { openModal } from "../../store/modalSlice";
 
 const CatalogItem = ({ catalog }) => {
   const {
-    // _id,
+    _id,
     name,
     price,
     rating,
@@ -32,12 +30,12 @@ const CatalogItem = ({ catalog }) => {
 
   const dispatch = useDispatch();
 
-  const handleCatalogItemClick = () => {
-    dispatch(openModal(catalog._id));
+  const handleItemClick = () => {
+    dispatch(openModal(_id));
   };
 
   return (
-    <li onClick={handleCatalogItemClick} className={css.cardWrapper}>
+    <li className={css.cardWrapper}>
       <div className={css.cardImgBox}>
         <img className={css.cardImg} src={gallery[0]} alt="camper" />
       </div>
@@ -122,7 +120,7 @@ const CatalogItem = ({ catalog }) => {
           </li>
         </ul>
         <div>
-          <Button />
+          <Button handleItemClick={handleItemClick} />
         </div>
       </div>
     </li>

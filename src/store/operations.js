@@ -10,8 +10,8 @@ export const fetchCatalogs = createAsyncThunk("catalog/adverts", async () => {
 
 export const fetchCatalogById = createAsyncThunk(
   "catalog/advertsById",
-  async (id) => {
-    const { data } = await axios.get(`${ADVERTS_URL}/${id}`);
+  async (_id) => {
+    const { data } = await axios.get(`${ADVERTS_URL}/${_id}`);
     return data;
   }
 );

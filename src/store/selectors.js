@@ -1,16 +1,21 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-export const selectCatalogs = (state) => state.catalogs.items;
+export const selectCatalogs = (state) => state.catalogs.catalogs.items;
 
-export const selectIsLoading = (state) => state.catalogs.isLoading;
+export const selectIsLoading = (state) => state.catalogs.catalogs.isLoading;
 
-export const selectError = (state) => state.catalogs.error;
+export const selectError = (state) => state.catalogs.catalogs.error;
 
-export const selectFilter = (state) => state.filter;
+export const selectFilter = (state) => state.catalogs.filter;
 
-export const selectPage = (state) => state.page;
+export const selectPage = (state) => state.catalogs.page;
 
-export const selectSelectedCatalogItemId = (state) => state.selectedItemId;
+export const selectIsOpen = (state) => state.modal.isOpen;
+
+export const selectSelectedCatalogItemId = (state) =>
+  state.modal.selectedItemId;
+
+export const selectselectedCard = (state) => state.modal.selectedCard;
 
 export const selectFilteredCatalogs = createSelector(
   [selectCatalogs, selectFilter],

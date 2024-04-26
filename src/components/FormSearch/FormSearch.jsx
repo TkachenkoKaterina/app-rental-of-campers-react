@@ -23,24 +23,29 @@ const FormSearch = () => {
           <ul className={css.equipmentList}>
             <li className={css.equipmentItem}>
               <label className={css.label}>
-                <input type="checkbox" name="equipment" value="AC" hidden />
+                <input type="checkbox" name="AC" value="AC" hidden />
                 <span className={css.equipmentSpan}>AC</span>
               </label>
               <label className={css.label}>
-                <input type="checkbox" name="equipment" value="AC" hidden />
-                <span className={css.equipmentSpan}>AC</span>
+                <input
+                  type="checkbox"
+                  name="automatic"
+                  value="Automatic"
+                  hidden
+                />
+                <span className={css.equipmentSpan}>Automatic</span>
               </label>
               <label className={css.label}>
-                <input type="checkbox" name="equipment" value="AC" hidden />
-                <span className={css.equipmentSpan}>AC</span>
+                <input type="checkbox" name="kitchen" value="Kitchen" hidden />
+                <span className={css.equipmentSpan}>Kitchen</span>
               </label>
               <label className={css.label}>
-                <input type="checkbox" name="equipment" value="AC" hidden />
-                <span className={css.equipmentSpan}>AC</span>
+                <input type="checkbox" name="tv" value="TV" hidden />
+                <span className={css.equipmentSpan}>TV</span>
               </label>
               <label className={css.label}>
-                <input type="checkbox" name="equipment" value="AC" hidden />
-                <span className={css.equipmentSpan}>AC</span>
+                <input type="checkbox" name="shower" value="Shower/WC" hidden />
+                <span className={css.equipmentSpan}>Shower/WC</span>
               </label>
             </li>
           </ul>
@@ -51,16 +56,16 @@ const FormSearch = () => {
           <ul className={css.equipmentList}>
             <li className={css.equipmentItem}>
               <label className={css.label}>
-                <input type="checkbox" name="equipment" value="AC" hidden />
+                <input type="radio" name="VehicleType" hidden />
                 <span className={css.equipmentSpan}>AC</span>
               </label>
               <label className={css.label}>
-                <input type="checkbox" name="equipment" value="AC" hidden />
-                <span className={css.equipmentSpan}>AC</span>
+                <input type="radio" name="VehicleType" hidden />
+                <span className={css.equipmentSpan}>Fully Integrated</span>
               </label>
               <label className={css.label}>
-                <input type="checkbox" name="equipment" value="AC" hidden />
-                <span className={css.equipmentSpan}>AC</span>
+                <input type="radio" name="VehicleType" hidden />
+                <span className={css.equipmentSpan}>Alcove</span>
               </label>
             </li>
           </ul>

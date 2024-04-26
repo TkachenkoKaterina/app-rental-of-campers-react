@@ -10,23 +10,121 @@
     align-items: center;
 }
 
-.modal {
+.modalContent {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    /* padding: 40px; */
+    max-width: 902px;
+    /* max-height: 640px; */
+    overflow: hidden;
+}
+
+.modalContentInner {
+    padding: 40px 16px 40px 40px;
+    max-height: 640px;
+    overflow-y: auto;
+    margin-right: 16px;
+    /* Add left margin */
+}
+
+/* Scrollbar styling */
+.modalContentInner::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modalContentInner::-webkit-scrollbar-thumb {
+    background-color: #D9D9D9;
+    border-radius: 7px;
+}
+
+.modalContentInner::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #101828;
 }
 
 .closeButton {
-    position: absolute;
-    top: 10px;
-    right: 10px;
     background: none;
     border: none;
+    font-size: 24px;
     cursor: pointer;
-    font-size: 16px;
+    color: #888;
 }
 
-/* .modalContent {
-
+/* .modalBody {
+    line-height: 1.6;
 } */
+
+.cardReviews {
+    margin-bottom: 16px;
+}
+
+.cardReviews {
+    display: flex;
+    gap: 16px;
+}
+
+.review {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.thumbnail {
+    display: flex;
+}
+
+.reviewRating {
+    border-bottom: 1px solid #101828;
+}
+
+.description {
+    margin-top: 24px;
+    margin-bottom: 44px;
+    color: #475467;
+}
+
+.add {
+    display: flex;
+    gap: 40px;
+}
+
+.features {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #101828;
+    text-decoration: none;
+}
+
+.img {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.cardImgBox {
+    width: 290px;
+    height: 310px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cardImg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
