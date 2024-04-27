@@ -60,16 +60,17 @@
     color:#101828
 }
 
-.ratingList {
+.rating {
     display: flex;
     gap: 4px;
-}
-
-.starActive {
-    fill: #FFC531;
 }
 
 .description {
     max-width: 430px;
     color: #475467;
 }
+
+.ratingItem {
+    list-style: none;
+}
+

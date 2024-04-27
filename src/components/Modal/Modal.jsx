@@ -1,4 +1,4 @@
-import React, { Suspense, useCallback, useEffect } from "react";
+import React, { Suspense, useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "../../store/modalSlice";
 import {
@@ -13,6 +13,8 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 const Modal = () => {
   const selectedItemId = useSelector(selectSelectedCatalogItemId);
   const selectedCardCatalog = useSelector(selectselectedCard);
+
+  const [activeTab, setActiveTab] = useState("features");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -37,6 +39,10 @@ const Modal = () => {
   useEffect(() => {
     dispatch(fetchCatalogById(selectedItemId));
   }, [dispatch, selectedItemId]);
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
 
   return (
     <div className={css.modalOverlay} onClick={handleCloseModal}>
@@ -109,14 +115,22 @@ const Modal = () => {
               <Link
                 to={`/catalog/${selectedItemId}/features`}
                 className={css.features}
+                onClick={() => handleTabClick("features")}
               >
                 Features
+                {activeTab === "features" && (
+                  <div className={css.activeTabIndicator}></div>
+                )}
               </Link>
               <Link
                 to={`/catalog/${selectedItemId}/reviews`}
                 className={css.features}
+                onClick={() => handleTabClick("reviews")}
               >
                 Reviews
+                {activeTab === "reviews" && (
+                  <div className={css.activeTabIndicator}></div>
+                )}
               </Link>
             </div>
             <div className={css.detailsLine}></div>

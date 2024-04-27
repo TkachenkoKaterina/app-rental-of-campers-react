@@ -13,15 +13,15 @@
 .modalContent {
     background-color: #fff;
     border-radius: 20px;
-    max-width: 902px;
+    width: 982px;
     overflow: hidden;
 }
 
 .modalContentInner {
     padding: 40px 16px 40px 40px;
-    max-height: 640px;
     overflow-y: auto;
     margin-right: 16px;
+    max-height: calc(100vh - 80px);
 }
 
 .modalContentInner::-webkit-scrollbar {
@@ -88,6 +88,7 @@
     margin-bottom: 44px;
     color: #475467;
     max-height: 72px;
+    max-width: 902px;
     overflow: hidden;
 }
 
@@ -104,6 +105,7 @@
 }
 
 .features {
+    position: relative;
     font-size: 20px;
     line-height: 1.2;
     font-weight: 600;
@@ -122,10 +124,20 @@
     height: 310px;
     border-radius: 10px;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .cardImg {
     object-fit: cover;
+    width: 290px;
+        height: 310px;
+}
+
+.activeTabIndicator {
+    height: 5px;
+    background-color: #E44848;
+    position: absolute;
+    bottom: -28px;
+    left: 0;
     width: 100%;
-    height: 100%;
 }

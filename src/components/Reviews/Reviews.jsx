@@ -10,75 +10,52 @@ const Reviews = () => {
   const selectedCardCatalog = useSelector(selectselectedCard);
   console.log(selectedCardCatalog);
 
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < rating) {
+        stars.push(
+          <li key={i} className={css.ratingItem}>
+            <svg width="16" height="16">
+              <use xlinkHref={`${sprite}#star-active`} />
+            </svg>
+          </li>
+        );
+      } else {
+        stars.push(
+          <li key={i} className={css.ratingItem}>
+            <svg width="16" height="16">
+              <use xlinkHref={`${sprite}#star`} />
+            </svg>
+          </li>
+        );
+      }
+    }
+    return stars;
+  };
+
   return (
     <div className={css.wrapper}>
       <div className={css.wrapperLeft}>
         <ul className={css.reviewList}>
-          <li className={css.reviewItem}>
-            <div className={css.reviewUserInfo}>
-              <div className={css.avatar}>
-                <p className={css.capitalize}>A</p>
-              </div>
-              <div className={css.userInfo}>
-                <p className={css.user}>
-                  {selectedCardCatalog?.reviews[0].reviewer_name}
-                </p>
-                <div className={css.rating}>
-                  <ul className={css.ratingList}>
-                    <li className={css.ratingItem}>
-                      <svg width="16" height="16" className={css.starActive}>
-                        <use xlinkHref={`${sprite}#star`} />
-                      </svg>
-                    </li>
-                    <li className={css.ratingItem}>
-                      <svg width="16" height="16">
-                        <use xlinkHref={`${sprite}#star`} />
-                      </svg>
-                    </li>
-                    <li className={css.ratingItem}>
-                      <svg width="16" height="16">
-                        <use xlinkHref={`${sprite}#star`} />
-                      </svg>
-                    </li>
-                    <li className={css.ratingItem}>
-                      <svg width="16" height="16">
-                        <use xlinkHref={`${sprite}#star`} />
-                      </svg>
-                    </li>
-                    <li className={css.ratingItem}>
-                      <svg width="16" height="16">
-                        <use xlinkHref={`${sprite}#star`} />
-                      </svg>
-                    </li>
+          {selectedCardCatalog?.reviews.slice(0, 2).map((review, index) => (
+            <li key={index} className={css.reviewItem}>
+              <div className={css.reviewUserInfo}>
+                <div className={css.avatar}>
+                  <p className={css.capitalize}>
+                    {String.fromCharCode(65 + index)}
+                  </p>
+                </div>
+                <div className={css.userInfo}>
+                  <p className={css.user}>{review.reviewer_name}</p>
+                  <ul className={css.rating}>
+                    {renderStars(review.reviewer_rating)}
                   </ul>
-                  {selectedCardCatalog?.reviews[0].reviewer_rating}
                 </div>
               </div>
-            </div>
-            <p className={css.description}>
-              {selectedCardCatalog?.reviews[0].comment}
-            </p>
-          </li>
-
-          <li className={css.reviewItem}>
-            <div className={css.reviewUserInfo}>
-              <div className={css.avatar}>
-                <p className={css.capitalize}>B</p>
-              </div>
-              <div className={css.userInfo}>
-                <p className={css.user}>
-                  {selectedCardCatalog?.reviews[1].reviewer_name}
-                </p>
-                <div className={css.rating}>
-                  {selectedCardCatalog?.reviews[1].reviewer_rating}
-                </div>
-              </div>
-            </div>
-
-            <p className={css.description}>
-              {selectedCardCatalog?.reviews[1].comment}
-            </p>
-          </li>
+              <p className={css.description}>{review.comment}</p>
+            </li>
+          ))}
         </ul>
       </div>
       <FormSend />
