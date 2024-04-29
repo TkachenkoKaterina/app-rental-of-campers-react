@@ -5,7 +5,10 @@ import Button from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../store/modalSlice";
 import { Link } from "react-router-dom";
-import { addToFavorites } from "../../store/favoritesSlice";
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from "../../store/favoritesSlice";
 import { selectFavorites } from "../../store/selectors";
 
 const CatalogItem = ({ catalog }) => {
@@ -37,7 +40,11 @@ const CatalogItem = ({ catalog }) => {
   };
 
   const handleAddToFavorites = () => {
-    dispatch(addToFavorites(catalog));
+    if (isFavorite) {
+      dispatch(removeFromFavorites(_id));
+    } else {
+      dispatch(addToFavorites(catalog));
+    }
     setIsFavorite(!isFavorite);
   };
 

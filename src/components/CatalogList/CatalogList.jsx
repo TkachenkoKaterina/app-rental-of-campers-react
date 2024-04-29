@@ -6,6 +6,8 @@ import css from "./CatalogList.module.css";
 import { fetchCatalogs } from "../../store/operations";
 import {
   selectCatalogs,
+  // selectFilter,
+  selectFilteredCatalogs,
   selectIsLoading,
   selectPage,
 } from "../../store/selectors";
@@ -18,6 +20,10 @@ const CatalogList = () => {
   const catalogs = useSelector(selectCatalogs);
   const isLoading = useSelector(selectIsLoading);
   const page = useSelector(selectPage);
+  // const filter = useSelector(selectFilter);
+
+  const filteredCatalogs = useSelector(selectFilteredCatalogs);
+  console.log(filteredCatalogs);
 
   useEffect(() => {
     dispatch(fetchCatalogs());
@@ -35,11 +41,10 @@ const CatalogList = () => {
   return (
     <div>
       <ul className={css.catalogList}>
-        {visibleCatalogs.map((catalog) => {
+        {filteredCatalogs.map((catalog) => {
           return <CatalogItem key={catalog._id} catalog={catalog} />;
         })}
       </ul>
-      {isLoading && <div>Loading...</div>}
       {!isLoading && visibleCatalogs.length < catalogs.length && (
         <div className={css.loadMoreContainer}>
           <LoadMore onLoadMore={handleLoadMore} />

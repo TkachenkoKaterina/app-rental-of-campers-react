@@ -2,9 +2,9 @@ import React from "react";
 
 import css from "./ButtonSearch.module.css";
 
-const ButtonSearch = () => {
+const ButtonSearch = ({ handleFormSubmit }) => {
   return (
-    <button className={css.button} type="submit">
+    <button onClick={handleFormSubmit} className={css.button} type="submit">
       Search
     </button>
   );
