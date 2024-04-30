@@ -29,16 +29,3 @@ export const fetchSearchValue = createAsyncThunk(
     return data;
   }
 );
-
-// export const fetchSearchValue = createAsyncThunk(
-//   "catalog/adverts",
-//   async (searchValue, checkboxValues, radioValue) => {
-//     const queryParams = checkboxValues
-//       .map((value) => `details[${value}]=true`)
-//       .join("&");
-//     console.log("queryParams :>> ", queryParams);
-//     const url = `${ADVERTS_URL}?location=${searchValue}&form=${radioValue}${queryParams}`;
-//     const { data } = await axios.get(url);
-//     return data;
-//   }
-// );
