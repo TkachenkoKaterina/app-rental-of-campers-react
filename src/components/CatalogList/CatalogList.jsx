@@ -6,7 +6,6 @@ import css from "./CatalogList.module.css";
 import { fetchCatalogs } from "../../store/operations";
 import {
   selectCatalogs,
-  // selectFilter,
   selectFilteredCatalogs,
   selectIsLoading,
   selectPage,
@@ -20,28 +19,25 @@ const CatalogList = () => {
   const catalogs = useSelector(selectCatalogs);
   const isLoading = useSelector(selectIsLoading);
   const page = useSelector(selectPage);
-  // const filter = useSelector(selectFilter);
-
   const filteredCatalogs = useSelector(selectFilteredCatalogs);
   console.log(filteredCatalogs);
 
   useEffect(() => {
     dispatch(fetchCatalogs());
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   const handleLoadMore = useCallback(() => {
     dispatch(incrementPage());
-    dispatch(fetchCatalogs());
   }, [dispatch]);
 
   const startIndex = (page - 1) * 4;
   const endIndex = startIndex + 4;
-  const visibleCatalogs = catalogs.slice(0, endIndex);
+  const visibleCatalogs = filteredCatalogs.slice(0, endIndex);
 
   return (
     <div>
       <ul className={css.catalogList}>
-        {filteredCatalogs.map((catalog) => {
+        {visibleCatalogs.map((catalog) => {
           return <CatalogItem key={catalog._id} catalog={catalog} />;
         })}
       </ul>

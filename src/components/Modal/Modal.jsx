@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import React, { Suspense, useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "../../store/modalSlice";
@@ -44,7 +45,7 @@ const Modal = () => {
     setActiveTab(tab);
   };
 
-  return (
+  return ReactDOM.createPortal(
     <div className={css.modalOverlay} onClick={handleCloseModal}>
       <div className={css.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={css.modalContentInner}>
@@ -140,7 +141,8 @@ const Modal = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal-root")
   );
 };
 

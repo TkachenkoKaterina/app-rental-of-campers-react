@@ -3,14 +3,11 @@ import ButtonSearch from "../ButtonSearch/ButtonSearch";
 
 import css from "./FormSearch.module.css";
 import sprite from "../../utils/svg/sprite.svg";
-// import { selectFilteredCatalogs } from "../../store/selectors";
 import { useDispatch } from "react-redux";
-// import { updateFilter } from "../../store/catalogsSlice";
 import { fetchSearchValue } from "../../store/operations";
 
 const FormSearch = () => {
   const [searchValue, setSearchValue] = useState("");
-
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
@@ -19,25 +16,8 @@ const FormSearch = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
-    // const checkboxValues = [];
-    // const checkboxes = document.querySelectorAll(
-    //   'input[type="checkbox"]:checked'
-    // );
-
-    // checkboxes.forEach((checkbox) => {
-    //   checkboxValues.push(checkbox.value);
-    // });
-
-    // const radioValue = document.querySelector(
-    //   'input[name="VehicleType"]:checked'
-    // )?.value;
-
-    // console.log(searchValue);
-    // console.log("checkboxValues :>> ", checkboxValues);
-    // console.log("radioValue :>> ", radioValue);
-
     dispatch(fetchSearchValue(searchValue));
+    setSearchValue("");
   };
 
   return (
